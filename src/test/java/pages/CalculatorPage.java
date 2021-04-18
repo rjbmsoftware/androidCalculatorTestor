@@ -25,6 +25,9 @@ public class CalculatorPage {
     @FindBy(id = "com.android.calculator2:id/result")
     private MobileElement resultText;
 
+    @FindBy(id = "com.android.calculator2:id/op_sub")
+    private MobileElement minusButton;
+
     public CalculatorPage(AndroidDriver<AndroidElement> androidDriver) {
         PageFactory.initElements(new AppiumFieldDecorator(androidDriver), this);
     }
@@ -51,5 +54,10 @@ public class CalculatorPage {
 
     public String getResultText() {
         return resultText.getText();
+    }
+
+    public CalculatorPage clickMinus() {
+        minusButton.click();
+        return this;
     }
 }

@@ -8,3 +8,4 @@ Running the project
         * sdk manager / sdk tools / command line tools
     * Appium
 * Set ANDROID_SDK_ROOT environment variable, can find the path from SDK manager
+* run gradlew cucumber

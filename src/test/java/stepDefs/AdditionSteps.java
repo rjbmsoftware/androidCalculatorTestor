@@ -17,4 +17,12 @@ public class AdditionSteps {
                 .clickPlus()
                 .clickTwo();
     }
+
+    @Given("user enters a {int} and taps plus and enters another {int}")
+    public void user_enters_a_and_taps_plus_and_enters_another(Integer first, Integer second) {
+        // Write code here that turns the phrase above into concrete actions
+        testDataWrapper.calculatorPage.clickNumberButton(first)
+                .clickPlus()
+                .clickNumberButton(second);
+    }
 }

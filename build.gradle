@@ -9,6 +9,11 @@ repositories {
     mavenCentral()
 }
 
+compileJava   {
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
+}
+
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testImplementation group: 'io.cucumber', name: 'cucumber-java', version: '6.10.2'
@@ -30,7 +35,9 @@ task cucumber() {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'stepDefs', 'src/test/resources']
+            args = ['--plugin', 'pretty',
+                    '--glue', 'stepDefs',
+                    'src/test/resources']
         }
     }
 }

@@ -53,8 +53,22 @@ public class CalculatorPage {
     @FindBy(id = "com.android.calculator2:id/op_sub")
     private MobileElement minusButton;
 
+    @AndroidFindBy(accessibility = "More options")
+    private MobileElement menuEllipsis;
+
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[1]/android.widget.LinearLayout")
+    private MobileElement historyLink;
+
     public CalculatorPage(AndroidDriver<AndroidElement> androidDriver) {
         PageFactory.initElements(new AppiumFieldDecorator(androidDriver), this);
+    }
+
+    public void clickMenu() {
+        menuEllipsis.click();
+    }
+
+    public void clickHistory() {
+        historyLink.click();
     }
 
     public CalculatorPage clickEight() {

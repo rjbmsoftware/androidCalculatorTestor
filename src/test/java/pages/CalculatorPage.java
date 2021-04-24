@@ -59,7 +59,10 @@ public class CalculatorPage {
     @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[1]/android.widget.LinearLayout")
     private MobileElement historyLink;
 
+    AndroidDriver<AndroidElement> androidDriver;
+
     public CalculatorPage(AndroidDriver<AndroidElement> androidDriver) {
+        this.androidDriver = androidDriver;
         PageFactory.initElements(new AppiumFieldDecorator(androidDriver), this);
     }
 
@@ -67,8 +70,9 @@ public class CalculatorPage {
         menuEllipsis.click();
     }
 
-    public void clickHistory() {
+     public HistoryPage clickHistory() {
         historyLink.click();
+        return new HistoryPage(this.androidDriver);
     }
 
     public CalculatorPage clickEight() {
